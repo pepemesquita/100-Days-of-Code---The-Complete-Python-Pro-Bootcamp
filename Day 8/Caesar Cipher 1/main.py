@@ -4,14 +4,14 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
+word_encrypted = []
 
-# TODO-1: Create a function called 'encrypt()' that takes 'original_text' and 'shift_amount' as 2 inputs.
+def encrypt(original_text, shift_amount):
+    for letter in original_text:
+        letter_index = alphabet.index(letter) + shift_amount
+        letter_index %= len(alphabet)
+        word_encrypted.append(alphabet[letter_index])
 
-# TODO-2: Inside the 'encrypt()' function, shift each letter of the 'original_text' forwards in the alphabet
-#  by the shift amount and print the encrypted text.
+    print(f"Here is the encoded result: {"".join(word_encrypted)}")
 
-# TODO-4: What happens if you try to shift z forwards by 9? Can you fix the code?
-
-# TODO-3: Call the 'encrypt()' function and pass in the user inputs. You should be able to test the code and encrypt a
-#  message.
-
+encrypt(text, shift)
